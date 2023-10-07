@@ -16,8 +16,9 @@ install:
   - chmod +x gradlew
 
 before_build:
-  - java -jar ./artifacts/app-deadline.jar &
   - docker-compose up -d
+  - java -jar ./artifacts/app-deadline.jar &
+
 
 build_script:
   - ./gradlew test --info -Dselenide.headless=true  # запускаем тест, флаг --info позволяет выводить больше информации
