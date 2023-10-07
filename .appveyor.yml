@@ -11,7 +11,6 @@ build: off # будем использовать свой скрипт сбор�
 
 install:
   - docker-compose up -d
-  - docker wait esaukova_auto_hw8
   - java -jar ./artifacts/app-deadline.jar &
   - chmod +x gradlew
 
