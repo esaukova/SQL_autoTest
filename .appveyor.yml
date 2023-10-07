@@ -6,19 +6,17 @@ branches:
   only:
     - main  # ветка git
 
-deploy_script:
-  - docker-compose up
-
 build: off # будем использовать свой скрипт сборки
 
 
-install:
-  - chmod +x gradlew
-
 before_build:
   - docker-compose up -d
-  - java -jar ./artifacts/app-deadline.jar &
 
+
+install:
+  - docker wait esaukova_auto_hw8-mysqldb-1  
+  - java -jar ./artifacts/app-deadline.jar &
+  - chmod +x gradlew
 
 build_script:
   - ./gradlew test --info -Dselenide.headless=true  # запускаем тест, флаг --info позволяет выводить больше информации
