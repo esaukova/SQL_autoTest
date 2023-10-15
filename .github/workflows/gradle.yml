@@ -21,8 +21,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Run docker-compose 
-        run: docker-compose up  
+      - name: Run docker-compose
+        run: docker-compose up & sleep 30      
       - name: Run jar file 
         run: java -jar ./artifacts/app-deadline.jar &   
       - name: Grant execute permission for gradlew
